@@ -1,0 +1,2 @@
+from sim.app.tutorial1and2 import Tutorial1
+Tutorial1.main([])

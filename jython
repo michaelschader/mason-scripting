@@ -1,0 +1,1 @@
+java -cp lib/jython.jar:bin:lib/mason-standalone.jar org.python.util.jython $*

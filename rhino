@@ -1,0 +1,1 @@
+java -cp lib/js.jar:lib/jline.jar:bin:lib/mason-standalone.jar jline.ConsoleRunner org.mozilla.javascript.tools.shell.Main $*

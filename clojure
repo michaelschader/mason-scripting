@@ -1,0 +1,1 @@
+java -cp lib/clojure.jar:lib/jline.jar:bin:lib/mason-standalone.jar jline.ConsoleRunner clojure.main $*
