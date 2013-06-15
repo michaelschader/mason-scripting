@@ -26,8 +26,8 @@ var b_heptomino = 	[[0, 1, 1],
 var ca = new Packages.sim.engine.Steppable({
 	step: function(state) {
 		tempGrid.setTo(grid);
-		for (var x = 0; x < tempGrid.getWidth(); x++) {
-			for (var y = 0; y < tempGrid.getHeight(); y++) {
+		for (var x = 0; x < gridWidth; x++) {
+			for (var y = 0; y < gridHeight; y++) {
 				var count = lcount(tempGrid, x, y);
 				if (count <= 2 || count >= 5) {
 					setCell(grid, x, y, 0);

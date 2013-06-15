@@ -18,9 +18,9 @@
 		(println)))
 
 (defn set-cell [^sim.field.grid.IntGrid2D agrid x y value]
-	(sim.scripting.ClojureHelper/set agrid x y value))
+	(sim.scripting.ScriptHelper/set agrid x y value))
 
-(defn lcount [agrid x y] (sim.scripting.ClojureHelper/lcount agrid x y))
+(defn lcount [agrid x y] (sim.scripting.ScriptHelper/lcount agrid x y))
 
 (let [	gridWidth 100
 	  	gridHeight 100

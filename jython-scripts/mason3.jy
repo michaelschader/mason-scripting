@@ -1,0 +1,46 @@
+import math
+from java.lang import System
+from sim.field.grid import IntGrid2D
+from sim.engine import Steppable, SimState
+from sim.scripting import ScriptHelper
+
+MAX = 180
+
+def setCell(agrid, x, y, value):
+	ScriptHelper.set(agrid, x, y, value)
+
+def lcount(agrid, x, y):
+	return ScriptHelper.lcount(agrid, x, y)
+
+gridWidth = 100
+gridHeight = 100
+grid = IntGrid2D(gridWidth, gridHeight)
+tempGrid = IntGrid2D(0, 0)
+
+b_heptomino = [[0, 1, 1], [1, 1, 0], [0, 1, 1], [0, 0, 1]];
+
+class Ca(Steppable):
+	def step(self, state):
+		tempGrid.setTo(grid)
+		for x in range(gridWidth):
+			for y in range(gridHeight):
+				count = lcount(tempGrid, x, y)
+				if count <= 2 or count >= 5:
+					setCell(grid, x, y, 0)
+				elif count == 3:
+					setCell(grid, x, y, 1)
+
+class Tutorial1(SimState):
+	def start(self):
+		for x in range(len(b_heptomino)):
+			for y in range(len(b_heptomino[x])):
+				grid.field[int(x + len(grid.field) / 2 + len(b_heptomino) / 2)][int(y + len(grid.field[x]) / 2 + len(b_heptomino[x]) / 2)] = b_heptomino[x][y]
+		self.schedule.scheduleRepeating(Ca())
+		
+start = System.currentTimeMillis()
+tutorial1 = Tutorial1(0)
+tutorial1.start()
+while tutorial1.schedule.getSteps() < MAX:
+	tutorial1.schedule.step(tutorial1)
+end = System.currentTimeMillis()
+print MAX / ((end - start) / float(1000))

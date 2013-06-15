@@ -9,9 +9,9 @@
 		   (float (/ (- end# start#) 1000))))
 
 (defn set-cell [^sim.field.grid.IntGrid2D agrid x y value]
-	(sim.scripting.ClojureHelper/set agrid x y value))
+	(sim.scripting.ScriptHelper/set agrid x y value))
 
-(defn lcount [agrid x y] (sim.scripting.ClojureHelper/lcount agrid x y))
+(defn lcount [agrid x y] (sim.scripting.ScriptHelper/lcount agrid x y))
 
 (let [	gridWidth 100
 	  	gridHeight 100
@@ -26,8 +26,8 @@
 		ca (proxy [sim.engine.Steppable] []
 			(step [state] 
 				(.setTo tempGrid grid)
-				(dotimes [x (.getWidth tempGrid)]
-					(dotimes [y (.getHeight tempGrid)]
+				(dotimes [x gridWidth]
+					(dotimes [y gridHeight]
 						(let [count (lcount tempGrid x y)]
 							(if (or (<= count 2) (>= count 5)) 
 								(set-cell grid x y 0)

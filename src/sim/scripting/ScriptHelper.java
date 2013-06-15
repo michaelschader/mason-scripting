@@ -1,6 +1,6 @@
 package sim.scripting;
 
-public class ClojureHelper {
+public class ScriptHelper {
 
 	/*
 		cell (fn [^sim.field.grid.IntGrid2D agrid x y dx dy] 

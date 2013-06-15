@@ -1,0 +1,14 @@
+from sim.app.tutorial1and2 import Tutorial1
+from java.lang import System
+
+tutorial1 = Tutorial1(0)
+MAX = 18000
+
+start = System.currentTimeMillis()
+
+tutorial1.start();
+while tutorial1.schedule.getSteps() < MAX:
+	tutorial1.schedule.step(tutorial1)
+
+end = System.currentTimeMillis()
+print MAX / ((end - start) / float(1000))

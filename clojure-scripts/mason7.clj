@@ -18,10 +18,10 @@
 		(println)))
 
 (defn cell [^sim.field.grid.IntGrid2D agrid x y dx dy]
-	(sim.scripting.ClojureHelper/cell agrid x y dx dy))
+	(sim.scripting.ScriptHelper/cell agrid x y dx dy))
 
 (defn set-cell [^sim.field.grid.IntGrid2D agrid x y value]
-	(sim.scripting.ClojureHelper/set agrid x y value))
+	(sim.scripting.ScriptHelper/set agrid x y value))
 
 (defn lcount [^sim.field.grid.IntGrid2D agrid x y] 
 	(+ (cell agrid x y -1 -1) (cell agrid x y 0 -1) (cell agrid x y 1 -1) 
