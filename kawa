@@ -1,0 +1,3 @@
+cd kawa-scripts
+java -cp ../lib/kawa.jar:../lib/jline.jar:../bin:../lib/mason-standalone.jar jline.ConsoleRunner kawa.repl $*
+cd ..

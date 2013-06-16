@@ -4,7 +4,7 @@ from sim.field.grid import IntGrid2D
 from sim.engine import Steppable, SimState
 from sim.scripting import ScriptHelper
 
-MAX = 180
+MAX = 1000
 
 def setCell(agrid, x, y, value):
 	ScriptHelper.set(agrid, x, y, value)
@@ -42,5 +42,8 @@ tutorial1 = Tutorial1(0)
 tutorial1.start()
 while tutorial1.schedule.getSteps() < MAX:
 	tutorial1.schedule.step(tutorial1)
+	steps = tutorial1.schedule.getSteps()
+#	if steps % 100 == 0:
+#		print "Steps: " + str(steps)
 end = System.currentTimeMillis()
 print MAX / ((end - start) / float(1000))

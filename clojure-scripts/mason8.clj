@@ -52,8 +52,9 @@
 		(while (< (.. tutorial1 schedule getSteps) MAX)
 			(.. tutorial1 schedule (step tutorial1))
 			(let [steps (.. tutorial1 schedule getSteps)]
-				(if (= 0 (mod steps (/ MAX 10)))
-		        	(println (str "Steps: " steps " Time: " (.. tutorial1 schedule getTime))))))
-	)) " steps/sec"))
+;				(if (= 0 (mod steps 100))
+;		        	(println (str "Steps: " steps)))
+		))
+	))))
 
 	(.finish tutorial1))

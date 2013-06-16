@@ -19,10 +19,12 @@ var gridWidth = 100;
 var gridHeight = 100;
 var grid = new Packages.sim.field.grid.IntGrid2D(gridWidth, gridHeight); 
 var tempGrid = new Packages.sim.field.grid.IntGrid2D(0, 0);
+
 var b_heptomino = 	[[0, 1, 1], 
 		 			 [1, 1, 0],
 		 			 [0, 1, 1],
 		 			 [0, 0, 1]];
+		
 var ca = new Packages.sim.engine.Steppable({
 	step: function(state) {
 		tempGrid.setTo(grid);
@@ -58,10 +60,8 @@ print(MAX / mtime(function() {
 	while (tutorial1.schedule.getSteps() < MAX) {
 		tutorial1.schedule.step(tutorial1);
 		var steps = tutorial1.schedule.getSteps();
-		if (steps % (MAX / 10) == 0) {
-			print("Steps: " + steps + " Time: " + tutorial1.schedule.getTime());
-		}
+//		if (steps % 100 == 0) { print("Steps: " + steps); }
 	}
 
 	tutorial1.finish();
-}) + " steps/sec");
+}));
