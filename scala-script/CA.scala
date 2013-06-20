@@ -1,3 +1,6 @@
+// Copyright 2013 by rlegendi
+// No license :-)
+
 import sim.field.grid.IntGrid2D
 import sim.engine.{Steppable, SimState}
 import sim.scripting.ScriptHelper.{set => setCell, lcount}
