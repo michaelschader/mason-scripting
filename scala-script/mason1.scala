@@ -20,7 +20,11 @@ class Ca extends Steppable {
 		for (x <- 0 until gridWidth;
          y <- 0 until gridHeight;
          count = lcount(tempGrid, x, y))
-      setCell(grid, x, y, if (count <= 2 || count >= 5) 0 else 1)
+      if (count <= 2 || count >= 5) {
+        setCell(grid, x, y, 0)
+      } else if (count == 3) {
+        setCell(grid, x, y, 1)
+      }
   }
 }
 
@@ -50,5 +54,5 @@ while (tutorial1.schedule.getSteps() < MAX) {
 }
 
 time += System.currentTimeMillis()
-println(MAX.toDouble / time / 1000)
+println(MAX.toDouble / time * 1000)
 
