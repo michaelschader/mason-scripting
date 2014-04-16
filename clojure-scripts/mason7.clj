@@ -1,6 +1,6 @@
 (set! *warn-on-reflection* true)
 (set! *unchecked-math* true)
-(def MAX 30000)
+(def MAX 3000)
 
 (println "Press enter to begin...")
 (.readLine (java.io.BufferedReader. (java.io.InputStreamReader. System/in)))
