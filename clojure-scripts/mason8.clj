@@ -1,6 +1,6 @@
 (set! *warn-on-reflection* true)
 (set! *unchecked-math* true)
-(def MAX 5000)
+(def MAX 3000)
 
 (defmacro mtime [expr]
   	`(let [start# (System/currentTimeMillis)
